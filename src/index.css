@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body{
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+.px-x{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+@media (min-width: 768px) {
+    .md\:px-md {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+}

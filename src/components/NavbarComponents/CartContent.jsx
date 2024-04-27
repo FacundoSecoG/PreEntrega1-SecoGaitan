@@ -4,7 +4,7 @@ import CartWidget from './CartWidget'
 
 const CartContent = () => {
     return (
-        <div>
+        <div className='flex'>
             <NavList />
             <CartWidget />
         </div>

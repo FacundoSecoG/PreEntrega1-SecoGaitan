@@ -5,9 +5,11 @@ import CartContent from './NavbarComponents/CartContent'
 
 const Navbar = () => {
     return (
-        <div>
-            <LogoNav />
-            <CartContent />
+        <div className='md:px-md px-x  w-full  h-20    rounded-2xl    fixed -top-1  pt-4   z-40  drop-shadow-md   border-b-4 border-fuchsia-600 shadow-lg duration-500 transition  backdrop-blur-[2rem]'>
+            <div className='flex justify-between items-center'>
+                <LogoNav />
+                <CartContent />
+            </div>
         </div>
     )
 }
