@@ -1,30 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { getProductos } from "../../firebase/productos";
-import CardProducto from "./CardProducto";
+import React, { useContext } from 'react';
+import CardProducto from './CardProducto';
+import { CartContext } from '../../CartContext';
 
 const Productos = () => {
-    const [productos, setProductos] = useState([]);
-    useEffect(() => {
-        async function fetchProductos() {
-            try {
-                const productosData = await getProductos();
-                setProductos(productosData);
-            } catch (error) {
-                console.error("Error fetching productos:", error);
-            }
-        }
-        fetchProductos();
-    }, []);
+    const { productos } = useContext(CartContext); 
 
     return (
-        <div>
-            <ul>
-                {productos.map((producto, index) => (
-                    <li key={index}>
-                        <CardProducto producto={producto} />
-                    </li>
-                ))}
-            </ul>
+        <div className="flex flex-wrap justify-center gap-4 py-28">
+            {productos.map((producto, index) => (
+                <div key={index} className="w-90 max-w-sm">
+                    <CardProducto producto={producto} />
+                </div>
+            ))}
         </div>
     );
 };

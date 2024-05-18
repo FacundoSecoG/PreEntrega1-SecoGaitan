@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { IoClose } from "react-icons/io5";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const NavList = () => {
     const [selectedItem, setSelectedItem] = useState("Inicio");
     const [menuOpen, setMenuOpen] = useState(false);
+    const location = useLocation();
+
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
+
     const navList = [
         {
             nombre: 'Inicio',
@@ -15,17 +18,18 @@ const NavList = () => {
         },
         {
             nombre: 'Productos',
-            route:'/categoria/productos'
+            route:'/productos'
         },
         {
             nombre: 'Contacto',
-            route:'/categoria/contacto'
+            route:'/contacto'
         },
         {
             nombre: 'Sobre Nosotros',
-            route:'/categoria/sobrenosotros'
+            route:'/sobrenosotros'
         }
     ];
+
     return (
         <nav className="flex pr-4">
             <div className="hidden lg:block">
@@ -34,7 +38,7 @@ const NavList = () => {
                         <Link to={item.route} key={index}>
                             <li
                                 onClick={() => setSelectedItem(item.nombre)}
-                                className={`font-semibold px-4 text-white rounded-lg transition duration-300 ${selectedItem === item.nombre ? 'bg-pink-500/75 text-main shadow-black/30 font-bold hover:backdrop-blur-[.2rem] hover:shadow-sm drop-shadow-md backdrop-blur-[4rem] shadow-lg' : 'glob false tracking-widest md:text-[16px] hover:text-main/90'} flex gap-3 items-center py-2 px-3`}
+                                className={`font-semibold px-4 text-white rounded-lg transition duration-300 hover:bg-pink-500/75 hover:shadow-black/30 hover:shadow-lg hover:backdrop-blur-[.2rem] ${location.pathname === item.route ? 'bg-pink-500/75 text-main shadow-black/30 font-bold drop-shadow-md backdrop-blur-[4rem] shadow-lg' : 'glob false tracking-widest md:text-[16px] hover:text-main/90'} flex gap-3 items-center py-2 px-3`}
                             >
                                 {item.nombre}
                             </li>
@@ -79,13 +83,13 @@ const NavList = () => {
                     )}
                 </span>
                 {menuOpen && (
-                    <ul className="absolute top-20 -right-32  py-8 px-8 z-40 duration-500 text- transition backdrop-blur-[20px] bg-white/10 rounded-lg">
+                    <ul className="absolute top-20 -right-32  py-8 px-8 z-40 duration-500 text- transition backdrop-blur-[20px] bg-white/30 rounded-lg">
                         {navList.map((item, index) => (
                             <Link to={item.route} key={index}>
                                 <li
                                     style={{margin: '24px 0'}}
                                     onClick={() => setSelectedItem(item.nombre)}
-                                    className={`font-bold py-8 rounded-lg transition text-center text-white duration-300 font-xl ${selectedItem === item.nombre ? 'text-main shadow-black/50 font-bold hover:backdrop-blur-[.2rem] hover:shadow-sm drop-shadow-md backdrop-blur-[4rem] shadow-lg bg-pink-500/75' : 'bg-black/40 glob false tracking-widest md:text-[16px] hover:text-main/90'} flex gap-3 items-center py-2 px-8`}
+                                    className={`font-bold py-8 rounded-lg transition text-center text-white duration-300 font-xl hover:bg-pink-500/75 hover:shadow-black/30 hover:shadow-lg hover:backdrop-blur-[.2rem] ${location.pathname === item.route ? 'text-main shadow-black/50 font-bold hover:backdrop-blur-[.2rem] hover:shadow-sm drop-shadow-md backdrop-blur-[4rem] shadow-lg bg-pink-500/75' : 'bg-black/50 glob false tracking-widest md:text-[16px] hover:text-main/90'} flex gap-3 items-center py-2 px-8`}
                                 >
                                     {item.nombre}
                                 </li>

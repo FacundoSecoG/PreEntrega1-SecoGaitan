@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
-import Footer from './components/Footer'
+import Footer from './components/FooterComponent/Footer'
 
 import Inicio from './components/InicioView/Inicio.jsx'
 import Productos from './components/ProductosView/Productos.jsx'
@@ -12,23 +12,30 @@ import Producto from './components/ProductoView/Producto.jsx'
 import Carrito from './components/CarritoView/Carrito.jsx'
 import Checkout from './components/ChekOutView/Checkout.jsx'
 
+import { CartProvider, CartContext } from "./CartContext.jsx";
+
 function App() {
   return (
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route exact path="/" element={<Inicio />} />
-        <Route exact path="/categoria/productos" element={<Productos />} />
-        <Route exact path="/categoria/contacto" element={<Contacto />} />
-        <Route exact path="/categoria/sobrenosotros" element={<SobreNosotros />} />
+    <CartProvider>
+      <BrowserRouter>
+        <Navbar />
+        <div className='h-full w-full  overflow-hidden'>
+          <Routes>
+            <Route exact path="/" element={<Inicio />} />
+            <Route exact path="/productos" element={<Productos />} />
+            <Route exact path="/contacto" element={<Contacto />} />
+            <Route exact path="/sobrenosotros" element={<SobreNosotros />} />
 
-        <Route exact path="/product/:productid" element={<Producto />} />
+            <Route exact path="/categoria/:categoria" element={<Productos />} />
+            <Route exact path="/producto/:productoid" element={<Producto />} />
 
-        <Route exact path="/carrito" element={<Carrito />} />
-        <Route exact path="/checkout" element={<Checkout />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+            <Route exact path="/carrito" element={<Carrito />} />
+            <Route exact path="/checkout" element={<Checkout />} />
+          </Routes>
+          <Footer />
+        </div>
+      </BrowserRouter>
+    </CartProvider>
   )
 }
 
