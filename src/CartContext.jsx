@@ -7,7 +7,9 @@ const CartContext = React.createContext();
 
 const CartProvider = ({ children }) => {
     const [productos, setProductos] = useState([]);
+    const [productosCarrito, setProductosCarrito] = useState([])
     const [cartItems, setCartItems] = useState([]);
+
 
     const [ productosApple, setProductosApple ] = useState([]);
     const [ productosSamsung, setProductosSamsung ] = useState([]);
@@ -68,6 +70,7 @@ const CartProvider = ({ children }) => {
         }
         localStorage.setItem("productos", JSON.stringify(productosEnLocalStorage));
         setCartItems(productosEnLocalStorage);
+        actualizarCarritoDesdeLocalStorage();
         setContador(cantidadTotalDeProductos(productosEnLocalStorage));
     };
     
@@ -91,6 +94,27 @@ const CartProvider = ({ children }) => {
     
         localStorage.setItem("productos", JSON.stringify(productosEnLocalStorage));
         setCartItems(productosEnLocalStorage);
+        actualizarCarritoDesdeLocalStorage();
+        setContador(cantidadTotalDeProductos(productosEnLocalStorage));
+    };
+
+    const eliminarProductoDelCarritoPorCompleto = (producto) => {
+        let productosEnLocalStorage = JSON.parse(localStorage.getItem("productos")) || [];
+    
+        const productoIndex = productosEnLocalStorage.findIndex(
+            (product) => product.id === producto.id
+        );
+    
+        if (productoIndex === -1) {
+            console.error("Producto no encontrado en el local storage.");
+            return;
+        }
+    
+        productosEnLocalStorage.splice(productoIndex, 1);
+    
+        localStorage.setItem("productos", JSON.stringify(productosEnLocalStorage));
+        setCartItems(productosEnLocalStorage);
+        actualizarCarritoDesdeLocalStorage();
         setContador(cantidadTotalDeProductos(productosEnLocalStorage));
     };
     
@@ -118,17 +142,7 @@ const CartProvider = ({ children }) => {
 
     const getProductosPorIds = async (ids) => {
         try {
-            const productosPromises = ids.map(async (id) => {
-                const docRef = doc(db, 'telefonos', id);
-                console.log("Document Reference:", docRef);
-                const docSnap = await getDoc(docRef);
-                if (docSnap.exists()) {
-                    return { id: docSnap.id, ...docSnap.data() };
-                } else {
-                    console.error('No existe ningún producto con el ID:', id);
-                    return null;
-                }
-            });
+            const productosPromises = ids.map(id => getProductoPorId(id));
             const productos = await Promise.all(productosPromises);
             return productos.filter(producto => producto !== null);
         } catch (error) {
@@ -136,6 +150,26 @@ const CartProvider = ({ children }) => {
             return [];
         }
     };
+
+    const actualizarCarritoDesdeLocalStorage = async () => {
+        try {
+            const productosEnLocalStorage = JSON.parse(localStorage.getItem("productos")) || [];
+            const ids = productosEnLocalStorage.map(producto => producto.id);
+        
+            const productos = await getProductosPorIds(ids);
+        
+            const productosCarritoActualizado = productos.map(producto => {
+            const productoEnLocalStorage = productosEnLocalStorage.find(p => p.id === producto.id);
+            const cantidad = productoEnLocalStorage ? productoEnLocalStorage.cantidad : 0;
+            return { ...producto, cantidad };
+        });
+    
+        setProductosCarrito(productosCarritoActualizado);
+        } catch (error) {
+            console.error("Error al actualizar el carrito desde el localStorage:", error);
+        }
+    };
+    
 
     const mejoresProductosDeLaCategoria = (productosRecibidos, categoria) => {
         return productosRecibidos
@@ -166,14 +200,18 @@ const CartProvider = ({ children }) => {
             setProductosSamsung(getProductosPorCategoria("samsung", productosDb));
             setProductosXiaomi(getProductosPorCategoria("xiaomi", productosDb));
             getMejoresProductos(productosDb);
+            actualizarCarritoDesdeLocalStorage();
+            console.log(productosCarrito)
         };
     
         fetchProductos();
     }, []);
+
     return (
         <CartContext.Provider
             value={{
                     cartItems,
+                    productosCarrito,
                     productos,
                     contador,
                     productosApple,
@@ -182,6 +220,7 @@ const CartProvider = ({ children }) => {
                     mejoresTelefonos,
                     agregarProductoAlCarrito,
                     eliminarProductoDelCarrito,
+                    eliminarProductoDelCarritoPorCompleto,
                     getMejoresProductos,
                     getProductosPorCategoria,
                     getProductoPorId,

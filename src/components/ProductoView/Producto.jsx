@@ -33,11 +33,11 @@ const Producto = () => {
                     <div className="md:flex md:items-center">
                             <ImgProductoDetalle producto={producto}/>
                             <div>
-                            <InfoProductoDetalle producto={producto}/>
-                            <div className='block'>
-                                <ContadorInputDetalle onChange={setContador}/>
-                                <AgregarAlCarritoBtn producto={producto} cantidad={contador}/>
-                            </div>
+                                <InfoProductoDetalle producto={producto}/>
+                                <div className='block'>
+                                    <ContadorInputDetalle onChange={setContador}/>
+                                    <AgregarAlCarritoBtn producto={producto} cantidad={contador}/>
+                                </div>
                             </div>
                         </div>
                     </div>

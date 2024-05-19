@@ -6,13 +6,14 @@ import Inicio from './components/InicioView/Inicio.jsx'
 import Productos from './components/ProductosView/Productos.jsx'
 import Contacto from './components/ContactoView/Contacto.jsx'
 import SobreNosotros from './components/SobreNosotrosView/Sobrenosotros.jsx'
+import ProductosCategoria from './components/ProductosCategoriaView/ProductosCategoria.jsx'
 
 import Producto from './components/ProductoView/Producto.jsx'
 
 import Carrito from './components/CarritoView/Carrito.jsx'
 import Checkout from './components/ChekOutView/Checkout.jsx'
 
-import { CartProvider, CartContext } from "./CartContext.jsx";
+import { CartProvider } from "./CartContext.jsx";
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
             <Route exact path="/contacto" element={<Contacto />} />
             <Route exact path="/sobrenosotros" element={<SobreNosotros />} />
 
-            <Route exact path="/categoria/:categoria" element={<Productos />} />
+            <Route exact path="/productos/:categoria" element={<ProductosCategoria />} />
             <Route exact path="/producto/:productoid" element={<Producto />} />
 
             <Route exact path="/carrito" element={<Carrito />} />

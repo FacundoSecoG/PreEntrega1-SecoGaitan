@@ -11,20 +11,20 @@ const Footer = () => {
                     <Link to={"/"} className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
                         <img src="/logoEcommerce.png" alt="Tuki Logo" className='w-[200px] ' />
                     </Link>
-                <ul className="flex flex-wrap justify-center items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
-                    <li>
-                        <Link to={"/"} className={`hover:underline hover:text-pink-500 me-4 md:me-6 ${location.pathname === "/" ? "font-bold text-pink-500" : ""}`}>Inicio</Link>
-                    </li>
-                    <li>
-                        <Link to={"/productos"} className={`hover:underline hover:text-pink-500 me-4 md:me-6 ${location.pathname === "/categoria/productos" ? "font-bold text-pink-500" : ""}`}>Productos</Link>
-                    </li>
-                    <li>
-                        <Link to={"/contacto"} className={`hover:underline hover:text-pink-500 me-4 md:me-6 ${location.pathname === "/categoria/contacto" ? "font-bold text-pink-500" : ""}`}>Contacto</Link>
-                    </li>
-                    <li>
-                        <Link to={"/sobrenosotros"} className={`hover:underline hover:text-pink-500 ${location.pathname === "/categoria/sobrenosotros" ? "font-bold text-pink-500" : ""}`}>Sobre nosotros</Link>
-                    </li>
-                </ul>
+                    <ul className="flex flex-wrap justify-center items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+                        <li>
+                            <Link to={"/"} className={`hover:underline hover:text-pink-500 me-4 md:me-6 ${location.pathname === "/" ? "font-bold text-pink-500" : ""}`}>Inicio</Link>
+                        </li>
+                        <li>
+                            <Link to={"/productos"} className={`hover:underline hover:text-pink-500 me-4 md:me-6 ${location.pathname === "/categoria/productos" ? "font-bold text-pink-500" : ""}`}>Productos</Link>
+                        </li>
+                        <li>
+                            <Link to={"/contacto"} className={`hover:underline hover:text-pink-500 me-4 md:me-6 ${location.pathname === "/categoria/contacto" ? "font-bold text-pink-500" : ""}`}>Contacto</Link>
+                        </li>
+                        <li>
+                            <Link to={"/sobrenosotros"} className={`hover:underline hover:text-pink-500 ${location.pathname === "/categoria/sobrenosotros" ? "font-bold text-pink-500" : ""}`}>Sobre nosotros</Link>
+                        </li>
+                    </ul>
                 </div>
                 <hr className="my-6 border-pink-500 bw sm:mx-[40px] dark:border-pink-500 lg:my-8" />
                 <span className="block text-sm text-gray-500 sm:text-center text-center dark:text-gray-400">
