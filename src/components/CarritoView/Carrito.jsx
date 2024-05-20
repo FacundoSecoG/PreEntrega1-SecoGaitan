@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { CartContext } from '../../CartContext';
 import CardProductoCarrito from './CardProductoCarrito';
 import MejoresProductosContenedor from '../InicioView/MejoresProductosContenedor';
+import ResumenDeCompra from './ResumenDeCompra';
 
 const Carrito = () => {
     const { productosCarrito } = useContext(CartContext);
@@ -17,6 +18,7 @@ const Carrito = () => {
                             <CardProductoCarrito producto={producto} />
                         </div>
                     ))}
+                    <ResumenDeCompra productosCarrito={productosCarrito}/>
                 </div>
                 <MejoresProductosContenedor />
             </div>

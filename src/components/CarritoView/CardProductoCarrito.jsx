@@ -14,7 +14,7 @@ const CardProductoCarrito = ({producto}) => {
             </div>
             <div className="p-6 sm:pr-20 h-full w-full">
                 <InfoProductoCarrito producto={producto}/>
-                <div className='lg:flex lg:justify-between block sm:pt-10 mt-5'>
+                <div className='lg:flex lg:justify-between block sm:pt-10'>
                     <ContadorInputCarrito producto={producto} cantidad={producto.cantidad} />
                     <EliminarDelCarrito producto={producto} />
                 </div>

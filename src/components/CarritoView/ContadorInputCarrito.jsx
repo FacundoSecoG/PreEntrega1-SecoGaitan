@@ -5,14 +5,14 @@ const ContadorInputCarrito = ({ producto, cantidad }) => {
     const { agregarProductoAlCarrito, eliminarProductoDelCarrito } = useContext(CartContext);
 
     return (
-            <div className="flex pb-5">
+            <div className="flex h-[40px] my-auto">
                 <span 
                     className="cursor-pointer w-10 text-center rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-pink-500 bg-gray-500/70 text-white"
                     onClick={() => eliminarProductoDelCarrito(producto.id)}
                 > 
                     -
                 </span>
-                <div className="h-10 w-10 bg-gray-500/70 flex items-center justify-center text-center text-white text-xs">
+                <div className="w-10 bg-gray-500/70 flex items-center justify-center text-center text-white text-xs">
                     {cantidad}
                 </div>
                 <span 
