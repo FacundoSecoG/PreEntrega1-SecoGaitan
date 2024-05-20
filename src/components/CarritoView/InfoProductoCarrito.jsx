@@ -11,7 +11,7 @@ const InfoProductoCarrito = ({producto}) => {
                     ${producto.precio}
                 </p>
             </div>
-            <p className="font-sans text-lg hidden sm:block font-normal leading-normal text-white/70 antialiased opacity-75">
+            <p className="font-sans text-lg font-normal leading-normal text-white/70 antialiased opacity-75">
                     {producto.descripcion}
             </p>
         </div>

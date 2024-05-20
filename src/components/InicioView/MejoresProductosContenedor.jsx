@@ -7,7 +7,7 @@ const MejoresProductosContenedor = () => {
     const { mejoresTelefonos } = useContext(CartContext)
 
     return (
-        <div className="flex flex-wrap mt-20 relative">
+        <div className="flex flex-wrap mt-20 justify-center relative">
             <h1 className='sm:text-7xl text-4xl absolute -top-5 right-10 text-white font-extrabold tracking-wider'>
                 Lo más <span className='text-pink-500 italic'>vendido</span>
             </h1>
