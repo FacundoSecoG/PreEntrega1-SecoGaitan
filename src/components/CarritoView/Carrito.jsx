@@ -1,6 +1,7 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { CartContext } from '../../CartContext';
 import CardProductoCarrito from './CardProductoCarrito';
+import MejoresProductosContenedor from '../InicioView/MejoresProductosContenedor';
 
 const Carrito = () => {
     const { productosCarrito } = useContext(CartContext);
@@ -17,6 +18,7 @@ const Carrito = () => {
                         </div>
                     ))}
                 </div>
+                <MejoresProductosContenedor />
             </div>
         </section>
     );
