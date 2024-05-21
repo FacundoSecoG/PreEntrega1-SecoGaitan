@@ -24,7 +24,7 @@ const Producto = () => {
         };
 
         fetchProducto();
-    }, [id, getProductoPorId]);
+    }, [productoid, getProductoPorId]);
 
     return (
         <section className="px-x md:px-md py-28 md:scroll-mt-20">
