@@ -1,11 +1,14 @@
 import React from "react";
+import ContactoTitulo from "./ContactoTitulo";
+import ContactoForm from "./ContactoForm";
 
 const Contacto = () => {
     return (
         <section className="px-x md:px-md py-28 md:scroll-mt-20">
-            <div className="md:flex justify-between items-center md:flex-row flex flex-col md:gap-10">
-                Contacto
-            </div>
+            <main>
+                <ContactoTitulo />
+                <ContactoForm />
+            </main>
         </section>
     );
 };
