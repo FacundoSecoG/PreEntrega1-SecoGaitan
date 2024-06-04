@@ -27,14 +27,14 @@ const FormCheckout = () => {
     };
 
     const mensajeCompra = (id) => {
-        setTimeout(() => {
+        setTimeout(()=>{
             Swal.fire({
                 title: "Compra realizada con éxito!",
                 text: `El id de tu compra es: ${id}, guárdalo ya que será útil para verificar el envío.`,
                 icon: "success",
                 confirmButtonText: `<i class="fa fa-thumbs-up"></i> Genial`
             });
-        }, 1000);
+        }, 1000)
     }
 
     const generarOrdenDeCompra = async (orden) => {

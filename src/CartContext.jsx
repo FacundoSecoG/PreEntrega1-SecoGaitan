@@ -217,6 +217,7 @@ const CartProvider = ({ children }) => {
     return (
         <CartContext.Provider
             value={{
+                    db,
                     cartItems,
                     productosCarrito,
                     productos,
