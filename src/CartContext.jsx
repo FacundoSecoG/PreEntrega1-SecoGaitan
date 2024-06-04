@@ -189,6 +189,13 @@ const CartProvider = ({ children }) => {
     
         setMejoresTelefonos(mejoresTelefonos);
     };
+
+    const vaciarCarritoDeCompras = () => {
+        setCartItems([]);
+        setContador(0)
+        setProductosCarrito([])
+        localStorage.removeItem("productos");
+    };
     
     useEffect(() => {
         const fetchProductos = async () => {
@@ -210,6 +217,7 @@ const CartProvider = ({ children }) => {
     return (
         <CartContext.Provider
             value={{
+                    db,
                     cartItems,
                     productosCarrito,
                     productos,
@@ -220,6 +228,7 @@ const CartProvider = ({ children }) => {
                     mejoresTelefonos,
                     agregarProductoAlCarrito,
                     eliminarProductoDelCarrito,
+                    vaciarCarritoDeCompras,
                     eliminarProductoDelCarritoPorCompleto,
                     getMejoresProductos,
                     getProductosPorCategoria,

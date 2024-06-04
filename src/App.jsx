@@ -11,7 +11,7 @@ import ProductosCategoria from './components/ProductosCategoriaView/ProductosCat
 import Producto from './components/ProductoView/Producto.jsx'
 
 import Carrito from './components/CarritoView/Carrito.jsx'
-import Checkout from './components/ChekOutView/Checkout.jsx'
+import Checkout from './components/ChekOutView/FormCheckout.jsx'
 
 import { CartProvider } from "./CartContext.jsx";
 
