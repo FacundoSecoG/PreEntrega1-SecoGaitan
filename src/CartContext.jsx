@@ -17,6 +17,8 @@ const CartProvider = ({ children }) => {
 
     const [mejoresTelefonos, setMejoresTelefonos] = useState([]);
     const [contador, setContador] = useState(0);
+
+
     
     const firebaseConfig = {
         apiKey: "AIzaSyDjQajhtQVEpojLGhXm70DUiXrvTe7M0KA",
@@ -208,7 +210,6 @@ const CartProvider = ({ children }) => {
     return (
         <CartContext.Provider
             value={{
-                    db,
                     cartItems,
                     productosCarrito,
                     productos,
