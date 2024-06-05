@@ -98,13 +98,13 @@ const FormCheckout = () => {
     };
 
     return (
-        <div className="leading-loose m-auto py-28 h-full">
-            <form className="max-w-xl rounded-xl m-auto p-10 bg-black/25 shadow-xl" onSubmit={handleSubmit}>
-                <p className="text-white text-2xl pb-3 font-medium">Información personal:</p>
+        <div className="leading-loose px-4 m-auto py-28 h-full">
+            <form className="max-w-xl rounded-xl m-auto p-10 bg-white/20 shadow-xl" onSubmit={handleSubmit}>
+                <p className="text-white sm:text-2xl pb-3 font-medium text-lg">Información personal:</p>
                 <div className="">
-                    <label className="block text-sm text-white" htmlFor="cus_name">Nombre</label>
+                    <label className="block pb-2 text-sm text-white" htmlFor="cus_name">Nombre</label>
                     <input 
-                        className="w-full px-5 py-1 text-black bg-gray-200 rounded" 
+                        className="input w-full focus:outline-none focus:ring focus:ring-pink-400 bg-gray-700/55 rounded-xl py-2 pl-3 focus:border-pink-500" 
                         id="cus_name" 
                         name="nombre" 
                         type="text" 
@@ -115,9 +115,9 @@ const FormCheckout = () => {
                     />
                 </div>
                 <div className="mt-2">
-                    <label className="block text-sm text-white" htmlFor="cus_apellido">Apellido</label>
+                    <label className="block pb-2 text-sm text-white" htmlFor="cus_apellido">Apellido</label>
                     <input 
-                        className="w-full px-5 py-4 text-black bg-gray-200 rounded" 
+                        className="input w-full focus:outline-none focus:ring focus:ring-pink-400 bg-gray-700/55 rounded-xl py-2 pl-3 focus:border-pink-500" 
                         id="cus_apellido" 
                         name="apellido" 
                         type="text" 
@@ -128,9 +128,9 @@ const FormCheckout = () => {
                     />
                 </div>
                 <div className="mt-2">
-                    <label className="block text-sm text-white" htmlFor="cus_email">Email</label>
+                    <label className="block pb-2 text-sm text-white" htmlFor="cus_email">Email</label>
                     <input 
-                        className="w-full px-5 py-4 text-black bg-gray-200 rounded" 
+                        className="input w-full focus:outline-none focus:ring focus:ring-pink-400 bg-gray-700/55 rounded-xl py-2 pl-3 focus:border-pink-500" 
                         id="cus_email" 
                         name="email" 
                         type="text" 
@@ -141,9 +141,9 @@ const FormCheckout = () => {
                     />
                 </div>
                 <div className="mt-2">
-                    <label className="block text-sm text-white" htmlFor="cus_email">Repetir email</label>
+                    <label className="block pb-2 text-sm text-white" htmlFor="cus_email">Repetir email</label>
                     <input 
-                        className="w-full px-5 py-4 text-black bg-gray-200 rounded" 
+                        className="input w-full focus:outline-none focus:ring focus:ring-pink-400 bg-gray-700/55 rounded-xl py-2 pl-3 focus:border-pink-500" 
                         id="cus_email" 
                         name="confirmarEmail" 
                         type="text" 
@@ -154,9 +154,9 @@ const FormCheckout = () => {
                     />
                 </div>
                 <div className="mt-2">
-                    <label className="block text-sm text-white" htmlFor="cus_email">Dirección</label>
+                    <label className="block pb-2 text-sm text-white" htmlFor="cus_email">Dirección</label>
                     <input 
-                        className="w-full px-2 py-2 text-black bg-gray-200 rounded" 
+                        className="input w-full focus:outline-none focus:ring focus:ring-pink-400 bg-gray-700/55 rounded-xl py-2 pl-3 focus:border-pink-500" 
                         id="cus_email" 
                         name="calle" 
                         type="text" 
@@ -167,9 +167,9 @@ const FormCheckout = () => {
                     />
                 </div>
                 <div className="mt-2">
-                    <label className="text-sm block text-white" htmlFor="cus_email">Ciudad</label>
+                    <label className="text-sm pb-2 block text-white" htmlFor="cus_email">Ciudad</label>
                     <input 
-                        className="w-full px-2 py-2 text-black bg-gray-200 rounded" 
+                        className="input w-full focus:outline-none focus:ring focus:ring-pink-400 bg-gray-700/55 rounded-xl py-2 pl-3 focus:border-pink-500" 
                         id="cus_email" 
                         name="ciudad" 
                         type="text" 
@@ -179,10 +179,10 @@ const FormCheckout = () => {
                         onChange={(e) => setCiudad(e.target.value)}
                     />
                 </div>
-                <div className="inline-block mt-2 w-1/2 pr-1">
-                    <label className="block text-sm text-white" htmlFor="cus_email">País</label>
+                <div className="sm:inline-block mt-2 sm:w-1/2 sm:pr-1">
+                    <label className="block text-sm pb-2 text-white" htmlFor="cus_email">País</label>
                     <input 
-                        className="w-full px-2 py-2 text-black bg-gray-200 rounded" 
+                        className="input w-full focus:outline-none focus:ring focus:ring-pink-400 bg-gray-700/55 rounded-xl py-2 pl-3 focus:border-pink-500" 
                         id="cus_email" 
                         name="pais" 
                         type="text" 
@@ -192,10 +192,10 @@ const FormCheckout = () => {
                         onChange={(e) => setPais(e.target.value)}
                     />
                 </div>
-                <div className="inline-block mt-2 -mx-1 pl-1 w-1/2">
-                    <label className="block text-sm text-white" htmlFor="cus_email">Código Postal</label>
+                <div className="sm:inline-block mt-2 -mx-1 pl-1 sm:w-1/2">
+                    <label className="block pb-2 text-sm text-white" htmlFor="cus_email">Código Postal</label>
                     <input 
-                        className="w-full px-2 py-2 text-black bg-gray-200 rounded" 
+                        className="input w-full focus:outline-none focus:ring focus:ring-pink-400 bg-gray-700/55 rounded-xl py-2 pl-3 focus:border-pink-500" 
                         id="cus_email" 
                         name="codigoPostal" 
                         type="text" 
@@ -206,7 +206,7 @@ const FormCheckout = () => {
                     />
                 </div>
                 <div className="mt-4">
-                    <button className="px-4 py-1 text-white bg-pink-500/55 hover:bg-pink-500 font-light tracking-wider rounded" type="submit">Realizar compra</button>
+                    <button className="sm:px-12 px-4  rounded-xl py-1 text-white bg-pink-500/55 hover:bg-pink-500 font-light tracking-wider" type="submit">Realizar compra</button>
                 </div>
             </form>
         </div>
