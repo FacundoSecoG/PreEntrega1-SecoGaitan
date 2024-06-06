@@ -1,6 +1,6 @@
 # Tuki-Ecommerce (ReactJS Vite - Proyecto Coderhouse)
 
-
+![Imagen de Portafolio](./public/proyectoEcommerce.png)
 
 Proyecto realizado para el curso de ReactJS dado por Coderhouse, Se trata de un ecommerce donde se venden telefonos de marcas reconocidas como apple, samsung y xiaomi.
 
