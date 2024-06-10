@@ -13,7 +13,7 @@ const ProductosCategoria = () => {
     }, [categoria, productos])
 
     return (
-        <section className='px-x md:px-md py-28 md:scroll-mt-20'>
+        <section className='px-x md:px-md py-28 md:scroll-mt-20 m-auto max-w-screen-2xl'>
             <div className='justify-between items-center md:flex-row block md:gap-10'>
                 <h1 className='sm:text-7xl text-4xl m-auto pb-2 pl-10 font-extrabold tracking-wider text-pink-500 italic'>
                     {categoria}

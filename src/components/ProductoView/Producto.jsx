@@ -27,7 +27,7 @@ const Producto = () => {
     }, [productoid, getProductoPorId]);
 
     return (
-        <section className="px-x md:px-md py-28 md:scroll-mt-20">
+        <section className="px-x md:px-md py-28 md:scroll-mt-20 m-auto max-w-screen-2xl">
             <div className="justify-between items-center md:flex-row block md:gap-10">
                 <div className="container mx-auto px-6">
                     <div className="md:flex md:items-center">

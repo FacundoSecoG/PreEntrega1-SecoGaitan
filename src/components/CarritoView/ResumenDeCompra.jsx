@@ -17,7 +17,7 @@ const ResumenDeCompra = ({productosCarrito}) => {
 
     return (
         <>
-            <div className="bg-black/20 rounded-xl sm:w-[60%] w-[100%] p-6 max-lg:max-w-xl max-lg:mx-auto">
+            <div className="bg-black/20 shadow-md shadow-black/40 rounded-xl sm:w-[60%] w-[100%] p-6 max-lg:max-w-xl max-lg:mx-auto">
                 <div className="flex items-center justify-between mb-6">
                     <p className="font-normal text-xl leading-8 text-white/60">Sub Total</p>
                     <h6 className="font-semibold text-xl leading-8 text-white">${subtotal}</h6>
