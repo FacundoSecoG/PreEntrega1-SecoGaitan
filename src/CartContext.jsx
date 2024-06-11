@@ -6,6 +6,7 @@ import { getFirestore, collection, getDocs, query, where, doc, getDoc } from "fi
 const CartContext = React.createContext();
 
 const CartProvider = ({ children }) => {
+    const [dbLoaded, setDbLoaded] = useState(false);
     const [productos, setProductos] = useState([]);
     const [productosCarrito, setProductosCarrito] = useState([])
     const [cartItems, setCartItems] = useState([]);
@@ -38,9 +39,11 @@ const CartProvider = ({ children }) => {
         try {
             const productosSnapshot = await getDocs(collection(db, 'telefonos'));
             const productosData = productosSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data(), }));
+            setDbLoaded(true);
             return productosData;
         } catch (error) {
             console.error('Error fetching productos:', error);
+            setDbLoaded(false);
             return [];
         }
     };
@@ -201,6 +204,7 @@ const CartProvider = ({ children }) => {
         const fetchProductos = async () => {
             const productosDb = await getProductos();
             setProductos(productosDb);
+            setDbLoaded(true);
             const productosEnLocalStorage = JSON.parse(localStorage.getItem("productos")) || [];
             setContador(cantidadTotalDeProductos(productosEnLocalStorage));
             setProductosApple(getProductosPorCategoria("apple", productosDb));
@@ -208,7 +212,6 @@ const CartProvider = ({ children }) => {
             setProductosXiaomi(getProductosPorCategoria("xiaomi", productosDb));
             getMejoresProductos(productosDb);
             actualizarCarritoDesdeLocalStorage();
-            console.log(productosCarrito)
         };
     
         fetchProductos();
@@ -218,6 +221,7 @@ const CartProvider = ({ children }) => {
         <CartContext.Provider
             value={{
                     db,
+                    dbLoaded,
                     cartItems,
                     productosCarrito,
                     productos,
